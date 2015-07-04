@@ -1,0 +1,4 @@
+services:
+
+  main:
+    class: "GreatOwl\Application\Main"

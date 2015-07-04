@@ -4,8 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "21c08874c0cf27c828d9197f6ecfc2f8",
+    "hash": "6c3cbca454209e45b7d802fd09dd3081",
     "packages": [
+        {
+            "name": "acclimate/container",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeremeamia/acclimate-container.git",
+                "reference": "6912ee2d9f069c103594977b55c91c7404ac40b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeremeamia/acclimate-container/zipball/6912ee2d9f069c103594977b55c91c7404ac40b9",
+                "reference": "6912ee2d9f069c103594977b55c91c7404ac40b9",
+                "shasum": ""
+            },
+            "require": {
+                "container-interop/container-interop": "~1.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "aura/di": "1.*",
+                "guzzle/service": "3.*",
+                "illuminate/container": "4.*",
+                "mnapoli/php-di": "3.*",
+                "nette/nette": "2.*",
+                "php": ">=5.4.0",
+                "phpunit/phpunit": "3.7.*",
+                "pimple/pimple": "1.*",
+                "symfony/dependency-injection": "2.*",
+                "zendframework/zend-di": "2.*",
+                "zendframework/zend-servicemanager": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Acclimate\\Container\\": "src/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "http://webjeremy.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides adapters for various third-party service containers.",
+            "keywords": [
+                "adapter",
+                "container",
+                "decorator",
+                "dependency injection",
+                "interoperability",
+                "service locator"
+            ],
+            "time": "2014-03-19 19:15:54"
+        },
         {
             "name": "container-interop/container-interop",
             "version": "1.1.0",

@@ -8,10 +8,12 @@
  */
 namespace Config;
 
+use Acclimate\Container\ContainerAcclimator;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Interop\Container\ContainerInterface;
 
 class Bootstrap
 {
@@ -29,7 +31,7 @@ class Bootstrap
 
     protected function buildDi()
     {
-        if (!$this->container instanceof ContainerBuilder) {
+        if (!$this->container instanceof ContainerInterface) {
             $root = rtrim($this->approot, '/');
             $container = new ContainerBuilder();
             $fileLocator = new FileLocator($root);
@@ -37,7 +39,11 @@ class Bootstrap
             $yamlLoader->load(static::CONFIG_FILE);
 
             $container->set('root', $root);
-            $this->container = $container;
+            $container->compile();
+            $acclimator = new ContainerAcclimator();
+            $acclimatorContainer = $acclimator->acclimate($container);
+            $container->set('container', $acclimatorContainer);
+            $this->container = $acclimatorContainer;
         }
 
         return $this->container;
@@ -48,6 +54,9 @@ class Bootstrap
         $cacheClass = $this->cache;
         if (!$this->container instanceof $cacheClass) {
             $this->container = new $cacheClass;
+            //this probabl breaks this for the time being.
+            $acclimator = new ContainerAcclimator();
+            $this->container = $acclimator->acclimate($this->container );
         }
 
         return $this->container;

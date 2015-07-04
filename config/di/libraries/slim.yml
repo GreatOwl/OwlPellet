@@ -1,0 +1,15 @@
+services:
+
+  slim:
+    class: 'Slim\App'
+
+  slim.container:
+    class: 'Slim\Container'
+    factory: [@slim, 'getContainer']
+
+  owl.pellet.route.loader:
+    class: 'GreatOwl\OwlPellet\RouteLoader'
+    arguments:
+      - @slim
+      - @container
+      - %routes%

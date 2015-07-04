@@ -1,0 +1,9 @@
+parameters:
+
+  routes: []
+  debug: true
+
+services:
+
+  root: {synthetic: true}
+  container: {synthetic: true}

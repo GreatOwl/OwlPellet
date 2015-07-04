@@ -6,8 +6,11 @@
  *
  * index.php
  */
+namespace GreatOwl\OwlPellet\Cache;
 
-class CachedContainer
+use Symfony\Component\DependencyInjection\Container;
+
+class CachedContainer extends Container
 {
 
 }

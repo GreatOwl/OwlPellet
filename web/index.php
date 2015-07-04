@@ -8,6 +8,8 @@
  */
 
 use Config\Bootstrap;
+use GreatOwl\OwlPellet\RouteLoader;
+use Slim\App;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/Bootstrap.php';
@@ -21,11 +23,10 @@ if (!isset($container)) {
     exit;
 }
 
-//$slim = $container->get('slim');
-$slim = new Slim\App();
+/** @var RouteLoader $routeLoader */
+$routeLoader = $container->get('owl.pellet.route.loader');
+$routeLoader();
 
-$slim->get('/', function () {
-    echo 'hi there';
-});
-
+/** @var App $slim */
+$slim = $container->get('slim');
 $slim->run();

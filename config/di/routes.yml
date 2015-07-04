@@ -1,0 +1,7 @@
+parameters:
+  routes:
+
+    default:
+      route: '/'
+      methods: ['GET']
+      controller: 'main'

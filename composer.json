@@ -11,6 +11,7 @@
   ],
   "require": {
     "php": ">=5.4.0",
+    "acclimate/container": "^1.0",
     "monolog/monolog": "^1.13",
     "slim/slim": "^3.0@beta",
     "symfony/config": ">=2.5",

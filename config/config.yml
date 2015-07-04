@@ -1,0 +1,5 @@
+imports:
+  - resource: di/libraries/slim.yml
+  - resource: di/app.yml
+  - resource: di/routes.yml
+  - resource: di/controllers.yml
