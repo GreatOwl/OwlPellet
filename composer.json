@@ -26,7 +26,7 @@
   "autoload": {
     "psr-4": {
       "GreatOwl\\OwlPellet\\": "lib",
-      "GreatOwl\\Application": "src"
+      "GreatOwl\\Application\\": "src/Application"
     }
   }
 }

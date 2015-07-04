@@ -1,0 +1,45 @@
+server {
+   listen       *:80;
+   listen       *:443 ssl;
+
+   server_name  owlpellet;
+
+   ssl on;
+
+   ssl_certificate /www/OwlPellet/config/vhosts/vm/vhost.crt;
+   ssl_certificate_key /www/OwlPellet/config/vhosts/vm/vhost.key;
+   ssl_session_cache         shared:SSL:10m;
+   ssl_session_timeout       5m;
+   ssl_protocols             TLSv1 TLSv1.1 TLSv1.2;
+   client_max_body_size 1m;
+     index  index.html index.htm index.php;
+
+   access_log            /www/OwlPellet/log/access.log;
+   error_log             /www/OwlPellet/log/error.log;
+
+
+   root /www/OwlPellet/web;
+   location / {
+
+     root  /www/OwlPellet/web;
+     try_files $uri $uri/ /index.php$is_args$args;
+      autoindex on;
+     index  index.html index.htm index.php;
+
+
+   }
+   location ~ \.php$ {
+
+     root  /www/OwlPellet/web;
+     fastcgi_index index.php;
+     fastcgi_split_path_info ^(.+\.php)(/.*)$;
+     try_files $uri $uri/ /index.php$is_args$args;
+     include /etc/nginx/fastcgi_params;
+     fastcgi_pass 127.0.0.1:9000;
+
+     fastcgi_param SCRIPT_FILENAME $request_filename;
+     fastcgi_param APP_ENV dev;
+
+   }
+   sendfile on;
+}
