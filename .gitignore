@@ -4,4 +4,5 @@
 vendor
 log
 testing/build
-src/Application/Cache/CachedContainer.php
+#cache/DependencyInjection/*
+#cache/Templates/*

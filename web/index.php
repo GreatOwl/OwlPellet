@@ -7,14 +7,14 @@
  * index.php
  */
 
-use GreatOwl\Application\Startup\Bootstrap;
+use GreatOwl\Application\Startup\DependencyInjectionLoader;
 use GreatOwl\Application\Startup\RouteLoader;
 use Slim\App;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$bootStrap = new Bootstrap(__DIR__ .'/../');
-$container = $bootStrap->getDi();
+$diLoader = new DependencyInjectionLoader(__DIR__ .'/../');
+$container = $diLoader->getDi();
 
 if (!isset($container)) {
     http_response_code(500);

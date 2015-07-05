@@ -14,11 +14,11 @@ use Symfony\Component\DependencyInjection\Dumper\PhpDumper;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Interop\Container\ContainerInterface;
 
-class Bootstrap
+class DependencyInjectionLoader
 {
     const FILE_CONFIG = 'config/config.yml';
-    const FILE_DI_CACHE = 'src/Application/Cache/CachedContainer.php';
-    const NAMESPACE_DI_CACHE = 'GreatOwl\Application\Cache\CachedContainer';
+    const FILE_DI_CACHE = 'cache/DependencyInjection/CachedContainer.php';
+    const NAMESPACE_DI_CACHE = 'GreatOwl\Cache\DependencyInjection\CachedContainer';
 
     protected $approot;
     protected $container;
@@ -56,13 +56,19 @@ class Bootstrap
 
             $phpDumper = new PhpDumper($container);
             $dump = $phpDumper->dump(['class' => $class, 'namespace' => $namespace]);
+            if (file_exists($this->approot . static::FILE_DI_CACHE)) {
+                chmod($this->approot . static::FILE_DI_CACHE, 0756);
+            }
             file_put_contents($this->approot . static::FILE_DI_CACHE, $dump);
         }
     }
 
     protected function loadDiCache($dumpCache)
     {
-        if (class_exists(static::NAMESPACE_DI_CACHE) && !$dumpCache ) {
+        if (!class_exists(static::NAMESPACE_DI_CACHE) || $dumpCache ) {
+            $this->buildDi();
+            $this->dumpDi();
+        } else {
             $containerCache = static::NAMESPACE_DI_CACHE;
             $cachedContainer = new $containerCache;
             $cachedContainer->set('symfony.container', $cachedContainer);
@@ -70,9 +76,6 @@ class Bootstrap
             /** @var ContainerInterface $container */
             $container = $cachedContainer->get('container');
             $this->setDi($container);
-        } else {
-            $this->buildDi();
-            $this->dumpDi();
         }
     }
 
