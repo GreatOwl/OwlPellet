@@ -1,4 +1,3 @@
 #!/bin/bash
 
-bin/permissions.sh
-bin/cacheDi.sh
+vendor/GreatOwl/Furcula/bin/install.sh

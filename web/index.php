@@ -7,13 +7,13 @@
  * index.php
  */
 
-use GreatOwl\Application\Startup\DependencyInjectionLoader;
-use GreatOwl\Application\Startup\RouteLoader;
+use GreatOwl\Furcula\Loaders\DependencyInjection;
+use GreatOwl\Furcula\Loaders\Routing;
 use Slim\App;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$diLoader = new DependencyInjectionLoader(__DIR__ .'/../');
+$diLoader = new DependencyInjection(__DIR__ .'/../');
 $container = $diLoader->getDi();
 
 if (!isset($container)) {
@@ -22,9 +22,9 @@ if (!isset($container)) {
     exit;
 }
 
-/** @var RouteLoader $routeLoader */
-$routeLoader = $container->get('owl.pellet.route.loader');
-$routeLoader();
+/** @var Routing $routing */
+$routing = $container->get('furcula.loader.routing');
+$routing();
 
 /** @var App $slim */
 $slim = $container->get('slim');

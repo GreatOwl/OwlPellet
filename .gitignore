@@ -4,5 +4,5 @@
 vendor
 log
 testing/build
-#cache/DependencyInjection/*
-#cache/Templates/*
+cache/DependencyInjection/*
+cache/Templates/*

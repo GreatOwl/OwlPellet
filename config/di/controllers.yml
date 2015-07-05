@@ -1,4 +1,4 @@
 services:
 
   main:
-    class: "GreatOwl\Application\Main"
+    class: "GreatOwl\OwlPellet\Application\Main"

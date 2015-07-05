@@ -7,7 +7,7 @@
  * index.php
  */
 
-namespace GreatOwl\Application;
+namespace GreatOwl\OwlPellet\Application;
 
 use Slim\Http\Request;
 use Slim\Http\Response;

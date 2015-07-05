@@ -4,8 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6c3cbca454209e45b7d802fd09dd3081",
+    "hash": "71b90d387ca4330bd4cd2333670cd018",
     "packages": [
+        {
+            "name": "GreatOwl/Furcula",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GreatOwl/Furcula.git",
+                "reference": "2aae7234341f752df2cf8d9bddd1e09b6d2aa08c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GreatOwl/Furcula/zipball/2aae7234341f752df2cf8d9bddd1e09b6d2aa08c",
+                "reference": "2aae7234341f752df2cf8d9bddd1e09b6d2aa08c",
+                "shasum": ""
+            },
+            "require": {
+                "acclimate/container": "^1.0",
+                "monolog/monolog": "^1.13",
+                "php": ">=5.4.0",
+                "slim/slim": "^3.0@beta",
+                "symfony/config": ">=2.5",
+                "symfony/dependency-injection": ">=2.6.3",
+                "symfony/yaml": ">=2.5"
+            },
+            "require-dev": {
+                "phpmd/phpmd": ">=1.4",
+                "phpunit/php-invoker": "*",
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GreatOwl\\Furcula\\": "src"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Nowak",
+                    "email": "andrew@nowakfamily.net"
+                }
+            ],
+            "description": "Skeleton setup to make it easier to get up and running on a new project",
+            "support": {
+                "source": "https://github.com/GreatOwl/Furcula/tree/master",
+                "issues": "https://github.com/GreatOwl/Furcula/issues"
+            },
+            "time": "2015-07-05 23:56:09"
+        },
         {
             "name": "acclimate/container",
             "version": "1.0.0",
@@ -1252,16 +1303,16 @@
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.3.4",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "92408bb1968a81b3217a6fdf6c1a198da83caa35"
+                "reference": "1c330b1b6e1ea8fd15f2fbea46770576e366855c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/92408bb1968a81b3217a6fdf6c1a198da83caa35",
-                "reference": "92408bb1968a81b3217a6fdf6c1a198da83caa35",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/1c330b1b6e1ea8fd15f2fbea46770576e366855c",
+                "reference": "1c330b1b6e1ea8fd15f2fbea46770576e366855c",
                 "shasum": ""
             },
             "require": {
@@ -1303,7 +1354,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-06-11 15:55:48"
+            "time": "2015-07-04 05:41:32"
         },
         {
             "name": "sebastian/comparator",
@@ -1754,6 +1805,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "greatowl/furcula": 20,
         "slim/slim": 10
     },
     "prefer-stable": false,
