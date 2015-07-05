@@ -5,3 +5,8 @@ parameters:
       route: '/'
       methods: ['GET']
       controller: 'main'
+
+    andrew:
+      route: '/{name}'
+      methods: ['GET']
+      controller: 'main'

@@ -6,4 +6,3 @@ parameters:
 services:
 
   root: {synthetic: true}
-  container: {synthetic: true}

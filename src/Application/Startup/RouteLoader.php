@@ -7,7 +7,7 @@
  * index.php
  */
 
-namespace GreatOwl\OwlPellet;
+namespace GreatOwl\Application\Startup;
 
 
 use Interop\Container\ContainerInterface;
@@ -42,6 +42,8 @@ class RouteLoader
 
             $route->setName($alias);
         }
+
+        return $this->routes;
     }
 
     private function getMethods($parameters)

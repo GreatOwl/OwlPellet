@@ -17,5 +17,9 @@ class Main
     public function __invoke(Request $request, Response $response, $arguments)
     {
         $response->write('this is just the beginning of my application');
+
+        foreach ($arguments as $argument) {
+            $response->write("\n $argument");
+        }
     }
 }
