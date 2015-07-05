@@ -2,5 +2,5 @@
 .idea/*
 .idea
 vendor
-log
+#log
 testing/build
